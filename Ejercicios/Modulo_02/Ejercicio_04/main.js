@@ -2,15 +2,15 @@
 
 
 function parImpar(numero){
-resultado=numero%2
-if(resultado==0){
-    console.log('Es un número par');
+
+if(numero %2 === 0){
+    return 'Es un número par';
 }else{
 
 }
-  console.log('Es un número impar');
+ return'Es un número impar';
 
 }
 
-parImpar(5)
+console.log(parImpar(4))
 
