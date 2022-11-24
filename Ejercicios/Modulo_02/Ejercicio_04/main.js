@@ -4,13 +4,13 @@
 function parImpar(numero){
 
 if(numero %2 === 0){
-    return 'Es un número par';
+    return `${numero} es un número par`;
 }else{
 
 }
- return'Es un número impar';
+ return `${numero} es un número impar`;
 
 }
 
-console.log(parImpar(4))
+console.log(parImpar(7))
 
