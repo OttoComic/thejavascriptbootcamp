@@ -1,17 +1,17 @@
 //Crea una función que calcule el área de un rectángulo y la muestre por consola.
 
-function areaRectangulo(ladoA, ladoB){
+function areaRectangulo(base, altura){
 
- const area= ladoA*ladoB;
+return base*altura;
 
- console.log(area);
 
- 
 }
+console.log(areaRectangulo(6, 2));
+console.log(areaRectangulo(5, 2));
 
-areaRectangulo(6, 2);
 
-console.log("Hola Mundo");
+
+
 
 
 
