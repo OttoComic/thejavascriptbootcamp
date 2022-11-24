@@ -2,18 +2,8 @@
 
 function doble(numero){
 
-  var resultado=numero*2;
-
-  console.log(resultado);
-}
-
-doble(3);
-// utilziando return
-
-function doble_02(numero){
-
   return numero*2;
  
  }
  
-  console.log(doble_02(6));
+  console.log(doble(6));
