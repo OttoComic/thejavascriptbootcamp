@@ -51,5 +51,3 @@ console.log(dieronLike(nombres2));
 console.log(dieronLike(nombres3));
 console.log(dieronLike(nombres4));
 console.log(dieronLike(nombres5));
-
-console.log("hola que tal");
