@@ -42,11 +42,14 @@ dieronLike = (nombres) => {
 
 const nombres = ["Cesar", "Yoli", "Luis", "Rafa", "Noa"];
 const nombres2 = ["Edu", "Nuria"];
-const nombres3 = [];
-const nombres4 = ["Luci"];
-const nombres5 = ["Aberto", "Olga", "Eva"];
+const nombres3 = ["Aberto", "Olga", "Eva"];
+const nombres4 = [];
+const nombres5 = ["Luci"];
+
 console.log(dieronLike(nombres));
 console.log(dieronLike(nombres2));
 console.log(dieronLike(nombres3));
 console.log(dieronLike(nombres4));
 console.log(dieronLike(nombres5));
+
+console.log("hola que tal");
