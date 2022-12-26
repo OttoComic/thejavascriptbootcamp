@@ -1,0 +1,22 @@
+.cuadrado{
+    border: 1px solid black;
+    width: 100px;
+    height:100px;
+    color: white;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .size1{
+      width: 100px;
+      height:100px;
+  }
+  .size2{
+      width: 200px;
+      height:200px;
+  }
+  .size3{
+      width: 300px;
+      height:300px;
+  }
