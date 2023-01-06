@@ -57,14 +57,3 @@ function otraFrase()
     const frase=Math.floor(Math.random() * frases.length);
 return frases[frase];
   }
-
-
-/*
-const frase=frases[Math.floor(Math.random() * frases.length)];
-parrafo.textContent=frase;
-
-//console.log("Esta perfecto.Logro conseguido");}
-  //console.log(span);
-  //console.log(arrTexto[index]);
-
-*/
