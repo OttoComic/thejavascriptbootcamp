@@ -400,24 +400,28 @@ const peliculas=[
  const buscarPeliculaTexto=document.querySelector(".buscar__pelicula--texto");
  const addPelicula=document.querySelector(".add__pelicula");
  const datosPelicula=document.querySelector(".datos__pelicula");
- 
+
  
  listado.addEventListener("click",(listadoPeliculas));
  
  const divPeliculas=document.querySelector(".div__peliculas");
+ const cardPelicula=document.querySelector(".card__pelicula");
  
- const ul = document.createElement("ul");
+
  function listadoPeliculas(){
-  peliculas.forEach((filme) => {
-   const li = document.createElement("li");
-   li.textContent = filme.title;
- 
-   ul.appendChild(li);
- });
- divPeliculas.appendChild(ul); 
- 
- 
- };
+  const template = document.querySelector("template");
+  const titulo = template.content.querySelector(".card__pelicula--titulo");
+  peliculas.forEach((user) => {
+    titulo.textContent = user.title;
+    //description.textContent = user.description;
+    //imagen.setAttribute("src", user.img);
+    //imagen.setAttribute("alt", user.name);
+    const clone = template.content.cloneNode(true);
+    cardPelicula.append(clone);
+   
+  })
+  divPeliculas.appendChild(cardPelicula); 
+};
  buscarPelicula.addEventListener("click",()=>{
    //console.log("Hola");
    buscarPeliculaTexto.style.display= "block";
