@@ -394,6 +394,7 @@ const peliculas = [
 
 const addPelicula=document.querySelector(".add__pelicula");
 const datosPelicula=document.querySelector(".datos__pelicula");
+const divPeliculas =document.querySelector(".div__peliculas ");
 
 
 //función para mostrar peliculas
@@ -412,7 +413,9 @@ const titulo = template.content.querySelector(".card__pelicula--titulo");
 listado.addEventListener("click",(listadoPeliculas));
 
 function listadoPeliculas(){
- 
+  divPeliculas.style.display="block";
+  formularioBuscar.style.display= "none";
+  datosPelicula.style.display="none";
   
 peliculas.forEach((user) => {
 cardPeliculaImagen.setAttribute("src", user.img);
@@ -433,17 +436,26 @@ cardReparto.textContent = user.starring.join(", ");
 
 //SELECTORES
 const buscarPelicula=document.querySelector(".buscar__pelicula");
-const buscarPeliculaTexto=document.querySelector(".buscar__pelicula--texto");
-
+const formularioBuscar=document.querySelector(".formulario__buscar");
+const formularioBuscarTexto=document.querySelector(".buscar__pelicula--texto");
 
 
 buscarPelicula.addEventListener("click",()=>{
-  buscarPeliculaTexto.style.display= "block";
+  divPeliculas.style.display="none";
+  formularioBuscar.style.display= "block";
+  datosPelicula.style.display="none";
   
 });
 
 
+
+
+
+
+
 addPelicula.addEventListener("click",()=>{
   datosPelicula.style.display="block";
+  divPeliculas.style.display="none";
+  formularioBuscar.style.display= "none";
   
 })
