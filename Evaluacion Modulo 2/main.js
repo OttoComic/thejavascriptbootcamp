@@ -438,6 +438,8 @@ cardReparto.textContent = user.starring.join(", ");
 const buscarPelicula=document.querySelector(".buscar__pelicula");
 const formularioBuscar=document.querySelector(".formulario__buscar");
 const formularioBuscarTexto=document.querySelector(".buscar__pelicula--texto");
+const btn=document.querySelector(".btn");
+const cardPeliculaBusqueda=document.querySelector(".card__pelicula--busqueda");
 
 
 buscarPelicula.addEventListener("click",()=>{
@@ -445,6 +447,25 @@ buscarPelicula.addEventListener("click",()=>{
   formularioBuscar.style.display= "block";
   datosPelicula.style.display="none";
   
+});
+btn.addEventListener("click",(buscarNombre)=>
+
+{
+  buscarNombre.preventDefault();
+  peliculas.forEach((nombre)=>{
+  if(nombre.title===formularioBuscarTexto.value)
+ {cardPeliculaBusqueda.style.display="grid";
+ cardPeliculaImagen.setAttribute("src", nombre.img);
+titulo.setAttribute("href", nombre.url);
+titulo.textContent = nombre.title;
+cardPeliculaYear.textContent=nombre.year;
+cardDirector.textContent = nombre.directedBy.join(", ");
+cardReparto.textContent = nombre.starring.join(", ");
+ }
+
+
+})
+
 });
 
 
