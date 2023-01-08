@@ -9,7 +9,6 @@
     <title>App CINEMA</title>
 </head>
 <body>
-
   <section class="container">
     <div class="encabezado">
     <h1 class="container__titulo">TOP CINEMA</h1>
@@ -29,11 +28,12 @@
      <input type="url" class="url__film" value="Introduce su URL en Rotten Tomatoes ">
      <input type="url" class="image__film" value="Introduce la URL de la imagen">
      <input type="text" class="year__film" value="Año de la produccion">
-     
+
    </form>
-    <div class="div__peliculas">
+    <div class="div__peliculas"></div>
+
       <template>
-        
+        <div class="card__pelicula">
 
             <img class="card__pelicula--imagen" src="", alt="">
            <a href="" class="card__pelicula--titulo">título</a>
@@ -42,24 +42,22 @@
                 <div class="card__pelicula--director">
               <p>Director(es): </p><p class="card__pelicula--director--p"></p>
             </div>
+          
             <div class="card__pelicula--reparto">
-              <ul class="card__pelicula--ul">Reparto:
-                <li class="card__pelicula--li"></li>
-                <li class="card__pelicula--li"></li>
-                <li class="card__pelicula--li"></li>
-                <li class="card__pelicula--li"></li>
-              </ul>
+              <p>Reparto: </p>
+                <p class="card__pelicula--reparto--p">Daniel Craig,Edward Norton,Dave Bautista y Kate Hudson</p>
+              
             </div>
-
+          </div>
 
       </template>
-      <div class="card__pelicula"></div>
-    </div>
-    
    
-    
+    </div>
+
+
+
   </section> 
-    
+
 
 </body>
 </html>
