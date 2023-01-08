@@ -62,20 +62,21 @@
   margin-bottom: 20px;
 
 }
-.listado, .buscar__pelicula, .add__pelicula{
+.listado, .buscar__pelicula, .add__pelicula, .btn{
   font-family: 'Limelight';
   font-size: 1.5rem;
   background:none;
   border: none;
   cursor:pointer;
 }
-.listado:hover, .buscar__pelicula:hover, .add__pelicula:hover{
+.listado:hover, .buscar__pelicula:hover, .add__pelicula:hover, .btn:hover{
 color:grey;
 }
 .formulario__buscar{
   width:100%;
   border: none;
   display: none;
+  margin-bottom: 20px;
   
 }
 .buscar__pelicula--texto {
@@ -115,22 +116,7 @@ color:grey;
 
 
 }
-.card__pelicula--busqueda {
-  border: 1px solid rgb(81, 82, 82);
-  border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: azure;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.28);
-  width:100%;
-  padding: 10px; 
-  display: none;
-  grid-template-columns: 180px auto;
-  grid-template-rows: 1rem;
-  column-gap: 30px;
 
-
-
-}
 
 .card__pelicula--imagen {
   border: 1px solid none;
@@ -155,4 +141,6 @@ color:grey;
 color: #55657a;
 
 }
-
+.card__pelicula--busqueda{
+  width:100%;
+}

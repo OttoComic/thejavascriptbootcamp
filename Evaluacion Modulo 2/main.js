@@ -416,6 +416,7 @@ function listadoPeliculas(){
   divPeliculas.style.display="block";
   formularioBuscar.style.display= "none";
   datosPelicula.style.display="none";
+  cardPeliculaBusqueda.style.display="none";
   
 peliculas.forEach((user) => {
 cardPeliculaImagen.setAttribute("src", user.img);
@@ -432,7 +433,7 @@ cardReparto.textContent = user.starring.join(", ");
   card__pelicula.append(fragment);
 };
 
-//función para buscar peliculas
+//funciónes para buscar peliculas
 
 //SELECTORES
 const buscarPelicula=document.querySelector(".buscar__pelicula");
@@ -444,7 +445,7 @@ const cardPeliculaBusqueda=document.querySelector(".card__pelicula--busqueda");
 
 buscarPelicula.addEventListener("click",()=>{
   divPeliculas.style.display="none";
-  formularioBuscar.style.display= "block";
+  formularioBuscar.style.display= "flex";
   datosPelicula.style.display="none";
   
 });
@@ -452,7 +453,9 @@ btn.addEventListener("click",(buscarNombre)=>
 
 {
   buscarNombre.preventDefault();
+ 
   peliculas.forEach((nombre)=>{
+  
   if(nombre.title===formularioBuscarTexto.value)
  {cardPeliculaBusqueda.style.display="grid";
  cardPeliculaImagen.setAttribute("src", nombre.img);
@@ -461,6 +464,9 @@ titulo.textContent = nombre.title;
 cardPeliculaYear.textContent=nombre.year;
 cardDirector.textContent = nombre.directedBy.join(", ");
 cardReparto.textContent = nombre.starring.join(", ");
+const clone = template.content.cloneNode(true);
+cardPeliculaBusqueda.append(clone);
+formularioBuscar.reset();
  }
 
 
