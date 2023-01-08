@@ -1,12 +1,17 @@
+/* IMPORTAR FUENTES*/
+
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto&display=swap');
+
 *{
   list-style: none;
   box-sizing: border-box;
   padding: 0;
   text-decoration:none;
+  font-family:sans-serif;
 
 }
 .container {
-  border: 1px solid black;
+ 
   padding: 10px;
   margin: 0 auto;
   width: 60%;
@@ -19,30 +24,67 @@
 
 .encabezado {
   width: 100%;
-  border: 1px solid blue;
+  height:400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:center;
+  background-image:url(./images/fondo_cartelera.jpg);
+  background-size:100%;
+
 }
 
 .container__titulo {
-  border: 1px solid black;
+
+  font-family: 'Limelight';
+  font-size: 95px;
+  letter-spacing:1rem;
+  margin-bottom: 28px;
 }
 
 .container__subtitulo {
-  border: 1px solid black;
+  font-family: 'Limelight';
+  font-size: 1.5rem;
+  letter-spacing:1rem;
 
+  
+  
 }
 
 .formulario__nav {
   width: 100%;
+  height:100px;
+ 
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
-}
+  background-image:url(./images/PELICULA.png);
+  background-size:contain;
+  margin-bottom: 20px;
 
+}
+.listado, .buscar__pelicula, .add__pelicula{
+  font-family: 'Limelight';
+  font-size: 1.5rem;
+  background:none;
+  border: none;
+  cursor:pointer;
+}
+.listado:hover, .buscar__pelicula:hover, .add__pelicula:hover{
+color:grey;
+}
+.formulario__buscar{
+  width:100%;
+  border: none;
+ 
+}
 .buscar__pelicula--texto {
-  display: none;
+  /*display: none;*/
+  font-family: 'Limelight';
+  font-size: 1.5rem;
+  width:100%;
+  padding:5px;
+  border: none;
+
 }
 
 .datos__pelicula {
