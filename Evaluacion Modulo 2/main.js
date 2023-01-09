@@ -441,7 +441,7 @@ const formularioBuscar=document.querySelector(".formulario__buscar");
 const formularioBuscarTexto=document.querySelector(".buscar__pelicula--texto");
 const btn=document.querySelector(".btn");
 const cardPeliculaBusqueda=document.querySelector(".card__pelicula--busqueda");
-
+const parrafo=document.querySelector(".parrafo");
 
 buscarPelicula.addEventListener("click",()=>{
   divPeliculas.style.display="none";
@@ -467,8 +467,14 @@ cardReparto.textContent = nombre.starring.join(", ");
 const clone = template.content.cloneNode(true);
 cardPeliculaBusqueda.append(clone);
 formularioBuscar.reset();
- }
 
+ }
+/* if(nombre.title!==formularioBuscarTexto.value){
+  parrafo.style.display="block";
+  parrafo.textContent='La película que buscas no está incluida en este top. Ve a la pestaña "Añadir película" si crees que debiera entrar en este top.';
+  formularioBuscar.reset();
+
+ }*/
 
 })
 
