@@ -1,4 +1,4 @@
-const peliculas = [
+const peliculasArray = [
   {
     id: 1,
     title: "Glass Onion: A Knives Out Mystery",
@@ -387,8 +387,8 @@ const peliculas = [
 ];
 
 //SELECTORES
-
-
+//const arrayImportes = JSON.parse(localStorage.getItem("tabla")) || [];
+const peliculas= JSON.parse(localStorage.getItem("peliculas")) || peliculasArray;
 
 
 
@@ -419,18 +419,19 @@ function listadoPeliculas(){
   cardPeliculaBusqueda.style.display="none";
   
 peliculas.forEach((user) => {
+  
 cardPeliculaImagen.setAttribute("src", user.img);
 titulo.setAttribute("href", user.url);
 titulo.textContent = user.title;
 cardPeliculaYear.textContent=user.year;
 cardDirector.textContent = user.directedBy.join(", ");
 cardReparto.textContent = user.starring.join(", ");
- 
-
-    const clone = template.content.cloneNode(true);
+const clone = template.content.cloneNode(true);
     fragment.append(clone);
+    
   })
   card__pelicula.append(fragment);
+ 
 };
 
 //funciónes para buscar peliculas
@@ -453,10 +454,10 @@ btn.addEventListener("click",(buscarNombre)=>
 
 {
   buscarNombre.preventDefault();
- 
+
   peliculas.forEach((nombre)=>{
-  
-  if(nombre.title===formularioBuscarTexto.value)
+ 
+  if(nombre.title.toLowerCase()===formularioBuscarTexto.value.toLowerCase())
  {
 
 cardPeliculaBusqueda.style.display="grid";
@@ -471,7 +472,8 @@ cardPeliculaBusqueda.append(clone);
 formularioBuscar.reset();
 
  }
- /*if(nombre.title!==formularioBuscarTexto.value){
+ //(Sin resolver)
+ /*else{
   parrafo.style.display="block";
   parrafo.textContent='La película que buscas no está incluida en este top. Ve a la pestaña "Añadir película" si crees que debiera entrar en este top.';
   formularioBuscar.reset();
@@ -515,7 +517,30 @@ addPeliculaNew.addEventListener("click",(e)=>{
     starring: [repartoNew.value],
     
   };
-  peliculas.push(nuevaPelicula);
   datosPelicula.reset();
-  console.log(peliculas);
+  peliculas.push(nuevaPelicula);
+  guardarPelicula();
+  
+  console.log(peliculas)
 });
+const guardarPelicula=()=>{
+  localStorage.setItem("peliculas", JSON.stringify(peliculas));
+}
+//Marcar como favorita(Sin resolver)
+
+ 
+ /*
+const favoritos=document.querySelectorAll(".favorito");
+const cardFavorito=document.querySelectorAll(".fav");
+favoritos.forEach(function(favorito) {
+favorito.addEventListener("click",()=>{
+  
+  if(favorito.checked==true)
+    
+  {cardFavorito.parentElement.style.color="green"}
+  else{
+    cardFavorito.parentElement.style.color="";
+  }
+})
+});
+*/

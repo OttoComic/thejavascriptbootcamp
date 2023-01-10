@@ -96,7 +96,7 @@ color:grey;
 .div__peliculas {
   display: none;
   width: 100%;
-  border: 1px solid rgb(85, 0, 255);
+
 
 }
 
@@ -175,4 +175,12 @@ color: #55657a;
 }
 .add__pelicula--new{
   width:20%;
+}
+.card__favorito{
+  display: flex;
+  justify-content:space-between;
+  color:#55657a;
+}
+.chck__fav, .card__pelicula--titulo{
+  color: #55657a;
 }

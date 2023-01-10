@@ -29,12 +29,12 @@
    <div class="card__pelicula--busqueda"></div>
    <p class="parrafo"></p>
    <form class="datos__pelicula">
-     <input type="text" class="titulo__new" value="Nombre de la pelicula">
-     <input type="url" class="url__new" value="Introduce su URL en Rotten Tomatoes ">
-     <input type="url" class="image__new" value="Introduce la URL de la imagen">
-     <input type="text" class="year__new" value="Año de la producción">
-     <input type="text" class="director__new" value="Director(es)">
-     <input type="text" class="reparto__new" value="Añade el reparo">
+     <input type="text" class="titulo__new" value="Nombre de la pelicula...">
+     <input type="url" class="url__new" value="Introduce su URL en Rotten Tomatoes... ">
+     <input type="url" class="image__new" value="Introduce la URL de la imagen...">
+     <input type="text" class="year__new" value="Año de la producción:...">
+     <input type="text" class="director__new" value='Director(es):...(separados por ",")'>
+     <input type="text" class="reparto__new" value='Añade el reparo:...(separados por ",")'>
      <input type="button" class="add__pelicula--new" value="Añadir">
 
    </form>
@@ -44,7 +44,14 @@
         <div class="card__pelicula">
 
             <img class="card__pelicula--imagen" src="", alt="">
+            <div class="card__favorito">
            <a href="" class="card__pelicula--titulo">título</a>
+           <form class="fav">
+            <label>Marcar como favorito</label>
+            <input type="checkbox" value="favorito" name="fav" class="favorito">
+          </form>
+           
+          </div>
             <div class="card__pelicula--year">
               <p>Año:</p>  <p class="card__pelicula--year--p"></p></div>
                 <div class="card__pelicula--director">
@@ -86,3 +93,4 @@
       <li class="card__pelicula--li">Kate Hudson</li>
     </ul>
   </div>-->
+ 
