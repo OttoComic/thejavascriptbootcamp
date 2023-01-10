@@ -457,7 +457,9 @@ btn.addEventListener("click",(buscarNombre)=>
   peliculas.forEach((nombre)=>{
   
   if(nombre.title===formularioBuscarTexto.value)
- {cardPeliculaBusqueda.style.display="grid";
+ {
+
+cardPeliculaBusqueda.style.display="grid";
  cardPeliculaImagen.setAttribute("src", nombre.img);
 titulo.setAttribute("href", nombre.url);
 titulo.textContent = nombre.title;
@@ -469,7 +471,7 @@ cardPeliculaBusqueda.append(clone);
 formularioBuscar.reset();
 
  }
-/* if(nombre.title!==formularioBuscarTexto.value){
+ /*if(nombre.title!==formularioBuscarTexto.value){
   parrafo.style.display="block";
   parrafo.textContent='La película que buscas no está incluida en este top. Ve a la pestaña "Añadir película" si crees que debiera entrar en este top.';
   formularioBuscar.reset();
@@ -482,13 +484,38 @@ formularioBuscar.reset();
 
 
 
+//funciónes añadir peliculas
 
+//SELECTORES
 
+const addPeliculaNew=document.querySelector(".add__pelicula--new");
+const tituloNew=document.querySelector(".titulo__new");
+const urlNew=document.querySelector(".url__new");
+const imageNew=document.querySelector(".image__new");
+const yearNew=document.querySelector(".year__new");
+const directorNew=document.querySelector(".director__new");
+const repartoNew=document.querySelector(".reparto__new");
 
 
 addPelicula.addEventListener("click",()=>{
-  datosPelicula.style.display="block";
+  datosPelicula.style.display="flex";
   divPeliculas.style.display="none";
   formularioBuscar.style.display= "none";
   
-})
+});
+addPeliculaNew.addEventListener("click",(e)=>{
+  e.preventDefault;
+  const nuevaPelicula = {
+    id: peliculas.length + 1,
+    title: tituloNew.value,
+    url: urlNew.value,
+    img: imageNew.value,
+    year: yearNew.value,
+    directedBy: [directorNew.value],
+    starring: [repartoNew.value],
+    
+  };
+  peliculas.push(nuevaPelicula);
+  datosPelicula.reset();
+  console.log(peliculas);
+});

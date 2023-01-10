@@ -156,3 +156,23 @@ color: #55657a;
   padding: 10px; 
 
 }
+.datos__pelicula{
+  border: 1px solid rgb(81, 82, 82);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: azure;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.28);
+  width:100%;
+  padding: 10px;
+
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+.datos__pelicula input{
+  font-size: 1rem;
+  color:  #55657a;
+}
+.add__pelicula--new{
+  width:20%;
+}
