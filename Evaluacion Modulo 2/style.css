@@ -176,11 +176,16 @@ color: #55657a;
 .add__pelicula--new{
   width:20%;
 }
-.card__favorito{
+.card__titulo{
   display: flex;
   justify-content:space-between;
   color:#55657a;
 }
-.chck__fav, .card__pelicula--titulo{
+.card__pelicula--titulo, .input__favorito{
   color: #55657a;
+}
+.input__favorito{
+  background:none;
+  border:none;
+  cursor:pointer;
 }

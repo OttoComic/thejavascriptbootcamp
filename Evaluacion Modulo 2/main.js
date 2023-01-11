@@ -401,7 +401,7 @@ const divPeliculas =document.querySelector(".div__peliculas ");
 
 //SELECTORES
 const fragment = document.createDocumentFragment();
-const card__pelicula=document.querySelector(".div__peliculas");
+const divPelicula=document.querySelector(".div__peliculas");
 const template = document.querySelector("template");
 const listado=document.querySelector(".listado");
 const titulo = template.content.querySelector(".card__pelicula--titulo");
@@ -430,8 +430,8 @@ const clone = template.content.cloneNode(true);
     fragment.append(clone);
     
   })
-  card__pelicula.append(fragment);
- 
+  divPelicula.append(fragment);
+  peliculasFavoritas()
 };
 
 //funciónes para buscar peliculas
@@ -472,7 +472,6 @@ cardPeliculaBusqueda.append(clone);
 formularioBuscar.reset();
 
  }
- //(Sin resolver)
  /*else{
   parrafo.style.display="block";
   parrafo.textContent='La película que buscas no está incluida en este top. Ve a la pestaña "Añadir película" si crees que debiera entrar en este top.';
@@ -526,21 +525,50 @@ addPeliculaNew.addEventListener("click",(e)=>{
 const guardarPelicula=()=>{
   localStorage.setItem("peliculas", JSON.stringify(peliculas));
 }
-//Marcar como favorita(Sin resolver)
+//Marcar como favorita(borrador)
 
- 
- /*
-const favoritos=document.querySelectorAll(".favorito");
-const cardFavorito=document.querySelectorAll(".fav");
-favoritos.forEach(function(favorito) {
-favorito.addEventListener("click",()=>{
+
+function peliculasFavoritas() {
+const inputFavorito=document.getElementsByClassName("input__favorito");
+
+console.log(inputFavorito.length);
+
   
-  if(favorito.checked==true)
-    
-  {cardFavorito.parentElement.style.color="green"}
-  else{
-    cardFavorito.parentElement.style.color="";
-  }
-})
-});
-*/
+for(let i = 0; i < inputFavorito.length; i++) {
+  
+  inputFavorito[i].addEventListener("click", function() {
+  if (inputFavorito[i].value==="Añadir a favoritos"){
+     const cardTitulo=document.getElementsByClassName("card__titulo");
+            for(let j = 0; j < inputFavorito.length; j++)
+            {
+                      if(i===j)
+                          {cardTitulo[j].parentElement.style.color="red"}
+            }
+  
+            inputFavorito[i].value="Quitar de favoritos";
+           
+peliculas[i].favorito='si';
+          
+console.log(peliculas);
+ 
+  } else{
+ 
+      const cardTitulo=document.getElementsByClassName("card__titulo");
+            for(let j = 0; j < inputFavorito.length; j++)
+            {
+                      if(i===j)
+                          {cardTitulo[j].parentElement.style.color="black"}
+            }
+  
+            inputFavorito[i].value="Añadir a favoritos";
+ 
+delete peliculas[i].favorito;
+console.log(peliculas);
+
+}
+ 
+
+  })
+}}
+ 
+
