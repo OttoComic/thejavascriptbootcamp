@@ -386,20 +386,21 @@ const peliculasArray = [
   },
 ];
 
-//SELECTORES
-//const arrayImportes = JSON.parse(localStorage.getItem("tabla")) || [];
+//**************************************************************************************
+
+//Inicio: comprobación estado del LocalStorage
 const peliculas= JSON.parse(localStorage.getItem("peliculas")) || peliculasArray;
 
-
+//funcion para guardar en el LocalStorage.
+const guardarPelicula=()=>{
+  localStorage.setItem("peliculas", JSON.stringify(peliculas));
+}
+//**************************************************************************************
+//SELECTORES GLOBALES
 
 const addPelicula=document.querySelector(".add__pelicula");
 const datosPelicula=document.querySelector(".datos__pelicula");
 const divPeliculas =document.querySelector(".div__peliculas ");
-
-
-//función para mostrar peliculas
-
-//SELECTORES
 const fragment = document.createDocumentFragment();
 const divPelicula=document.querySelector(".div__peliculas");
 const template = document.querySelector("template");
@@ -409,17 +410,43 @@ const titulo = template.content.querySelector(".card__pelicula--titulo");
  const cardPeliculaYear=template.content.querySelector(".card__pelicula--year--p");
  const cardReparto=template.content.querySelector(".card__pelicula--reparto--p");
  const cardPeliculaImagen=template.content.querySelector(".card__pelicula--imagen");
+const cardTitulo=document.getElementsByClassName("card__titulo");
+const inputFavorito=document.getElementsByClassName("input__favorito");
+
+//SELECTORES PARA BUSCAR PELICULAS
+const buscarPelicula=document.querySelector(".buscar__pelicula");
+const formularioBuscar=document.querySelector(".formulario__buscar");
+const formularioBuscarTexto=document.querySelector(".buscar__pelicula--texto");
+const btn=document.querySelector(".btn");
+const cardPeliculaBusqueda=document.querySelector(".card__pelicula--busqueda");
+const parrafo=document.querySelector(".parrafo");
+//SELECTORES AÑADIR PELICULAS
+
+const addPeliculaNew=document.querySelector(".add__pelicula--new");
+const tituloNew=document.querySelector(".titulo__new");
+const urlNew=document.querySelector(".url__new");
+const imageNew=document.querySelector(".image__new");
+const yearNew=document.querySelector(".year__new");
+const directorNew=document.querySelector(".director__new");
+const repartoNew=document.querySelector(".reparto__new");
+
+
+//************************************************************************************
+
+
+//función para mostrar peliculas
 
 listado.addEventListener("click",(listadoPeliculas));
 
 function listadoPeliculas(){
+
   divPeliculas.style.display="block";
   formularioBuscar.style.display= "none";
   datosPelicula.style.display="none";
   cardPeliculaBusqueda.style.display="none";
   
 peliculas.forEach((user) => {
-  
+
 cardPeliculaImagen.setAttribute("src", user.img);
 titulo.setAttribute("href", user.url);
 titulo.textContent = user.title;
@@ -431,18 +458,12 @@ const clone = template.content.cloneNode(true);
     
   })
   divPelicula.append(fragment);
-  peliculasFavoritas()
+  comprobarEstado()
+peliculasFavoritas()
+
 };
 
 //funciónes para buscar peliculas
-
-//SELECTORES
-const buscarPelicula=document.querySelector(".buscar__pelicula");
-const formularioBuscar=document.querySelector(".formulario__buscar");
-const formularioBuscarTexto=document.querySelector(".buscar__pelicula--texto");
-const btn=document.querySelector(".btn");
-const cardPeliculaBusqueda=document.querySelector(".card__pelicula--busqueda");
-const parrafo=document.querySelector(".parrafo");
 
 buscarPelicula.addEventListener("click",()=>{
   divPeliculas.style.display="none";
@@ -454,7 +475,7 @@ btn.addEventListener("click",(buscarNombre)=>
 
 {
   buscarNombre.preventDefault();
-
+  
   peliculas.forEach((nombre)=>{
  
   if(nombre.title.toLowerCase()===formularioBuscarTexto.value.toLowerCase())
@@ -469,6 +490,7 @@ cardDirector.textContent = nombre.directedBy.join(", ");
 cardReparto.textContent = nombre.starring.join(", ");
 const clone = template.content.cloneNode(true);
 cardPeliculaBusqueda.append(clone);
+
 formularioBuscar.reset();
 
  }
@@ -481,31 +503,26 @@ formularioBuscar.reset();
 
 })
 
+guardarPelicula();
+
 });
 
 
 
 //funciónes añadir peliculas
 
-//SELECTORES
-
-const addPeliculaNew=document.querySelector(".add__pelicula--new");
-const tituloNew=document.querySelector(".titulo__new");
-const urlNew=document.querySelector(".url__new");
-const imageNew=document.querySelector(".image__new");
-const yearNew=document.querySelector(".year__new");
-const directorNew=document.querySelector(".director__new");
-const repartoNew=document.querySelector(".reparto__new");
-
 
 addPelicula.addEventListener("click",()=>{
+
   datosPelicula.style.display="flex";
   divPeliculas.style.display="none";
   formularioBuscar.style.display= "none";
   
 });
 addPeliculaNew.addEventListener("click",(e)=>{
+  
   e.preventDefault;
+  
   const nuevaPelicula = {
     id: peliculas.length + 1,
     title: tituloNew.value,
@@ -519,56 +536,63 @@ addPeliculaNew.addEventListener("click",(e)=>{
   datosPelicula.reset();
   peliculas.push(nuevaPelicula);
   guardarPelicula();
-  
-  console.log(peliculas)
+
 });
-const guardarPelicula=()=>{
-  localStorage.setItem("peliculas", JSON.stringify(peliculas));
-}
-//Marcar como favorita(borrador)
+
+//funciones para añadir/quitar como favorita la pelicula
 
 
 function peliculasFavoritas() {
-const inputFavorito=document.getElementsByClassName("input__favorito");
-
-console.log(inputFavorito.length);
-
-  
+ 
 for(let i = 0; i < inputFavorito.length; i++) {
   
   inputFavorito[i].addEventListener("click", function() {
   if (inputFavorito[i].value==="Añadir a favoritos"){
-     const cardTitulo=document.getElementsByClassName("card__titulo");
+     
             for(let j = 0; j < inputFavorito.length; j++)
             {
                       if(i===j)
-                          {cardTitulo[j].parentElement.style.color="red"}
+                          {cardTitulo[j].parentElement.style.background="lightgreen"}
             }
   
             inputFavorito[i].value="Quitar de favoritos";
-           
-peliculas[i].favorito='si';
+            peliculas[i].favorito='si';
+
           
-console.log(peliculas);
+
  
   } else{
  
-      const cardTitulo=document.getElementsByClassName("card__titulo");
+
             for(let j = 0; j < inputFavorito.length; j++)
             {
                       if(i===j)
-                          {cardTitulo[j].parentElement.style.color="black"}
+                          {cardTitulo[j].parentElement.style.background="azure"}
             }
   
             inputFavorito[i].value="Añadir a favoritos";
  
 delete peliculas[i].favorito;
-console.log(peliculas);
+
+
 
 }
  
-
+guardarPelicula();
   })
+
 }}
  
+//funcion para comprobar estado de favoritos
+function comprobarEstado() {
+for (let k=0; k<peliculas.length; k++){
+ 
+  if(peliculas[k].favorito==='si'){
+    cardTitulo[k].parentElement.style.background="lightgreen";
+    inputFavorito[k].value="Quitar de favoritos";
+   
+  }else{
 
+  }
+  guardarPelicula();
+}}
